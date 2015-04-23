@@ -8,8 +8,10 @@ Steps to begin
   * `bower install git@github.com:pattern-library/pattern-library.git --save`
 3. Install the Pattern Importer
   * isn't in NPM yet so...
-  * clone the repo: git@github.com:pattern-library/pattern-importer.git
-  * put cloned folder into your Atlas installation's node_modules
+  * clone the repo: `git clone git@github.com:pattern-library/pattern-importer.git node_modules/pattern-importer`
+4. Install pattern importer npm modules
+  `cd node_modules/pattern-importer/`
+  `npm install`
 4. Create a gulp task:
 
 ```
