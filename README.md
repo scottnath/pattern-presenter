@@ -8,7 +8,8 @@ Steps to begin
   * `bower install git@github.com:pattern-library/pattern-library.git --save`
 3. Install the Pattern Importer
   * isn't in NPM yet so...
-  * clone the repo: `git clone git@github.com:pattern-library/pattern-importer.git node_modules/pattern-importer`
+  * clone the repo: `git clone git@github.com:pattern-library/pattern-importer.git node_modules/pattern-importer  --branch npm-module`
+  * **NOTE* cloning the *branch* npm-module
 4. Install pattern importer npm modules
   `cd node_modules/pattern-importer/`
   `npm install`
