@@ -6,4 +6,10 @@ var dir = require('node-dir'),
 var createPatternObject = require('./lib/create-pattern-object.js'),
     PLUGIN_NAME = 'pattern-importer';
 
-console.log(createPatternObject('./app/_patterns'));
+var config = createPatternObject('../../app/_patterns', function (err, filesTree){
+  if (err) throw err;
+
+  //@TODO: generate menu tree using filesTree
+  console.log(filesTree);
+});
+
