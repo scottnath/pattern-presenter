@@ -10,6 +10,8 @@ var config = createPatternObject('../../app/_patterns', function (err, filesTree
   if (err) throw err;
 
   //@TODO: generate menu tree using filesTree
+  console.log('filesTree');
   console.log(filesTree);
 });
 
+console.log(config);

@@ -38,6 +38,7 @@ describe('pattern-presenting', function () {
       var patternsObj = createPatternObject(path.join(process.cwd(),'./test/fixtures/_patterns'));
       console.log(patternsObj);
       console.log(path.join(process.cwd(),'./test/fixtures/_patterns'));
+      patternsObj.should.have.property('name', 'Heading Level 1 Test H1');
     });
 
   });
