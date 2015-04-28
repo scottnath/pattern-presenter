@@ -34,10 +34,13 @@ describe('pattern-presenting', function () {
 
   describe('pattern gathering', function () {
 
-    it('should create an object from a folder of compiled patterns', function () {
-      var patternsObj = createPatternObject(path.join(process.cwd(),'./test/fixtures/_patterns'));
-      console.log(patternsObj);
-      console.log(path.join(process.cwd(),'./test/fixtures/_patterns'));
+    it('should create an object from a folder of compiled patterns', function (done) {
+      createPatternObject('./test/fixtures/_patterns', function (err, filesTree){
+        expect(filesTree.categories).to.contain.any.keys('base');
+        expect(filesTree.categories).to.contain.any.keys('components');
+        expect(filesTree.categories).to.contain.any.keys('uncategorized');
+        done();
+      });
     });
 
   });
