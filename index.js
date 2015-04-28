@@ -1,12 +1,22 @@
 'use strict';
 var dir = require('node-dir'),
-    yaml = require('js-yaml'),
-    gutil = require('gulp-util');
+  Promise = require('bluebird'),
+  yaml = require('js-yaml'),
+  gutil = require('gulp-util'),
+  createPatternObject = require('./lib/create-pattern-object.js'),
+  createPatternObjectPromise = Promise.promisifyAll(createPatternObject),
+  PLUGIN_NAME = 'pattern-importer';
 
-var createPatternObject = require('./lib/create-pattern-object.js'),
-    PLUGIN_NAME = 'pattern-importer';
-
-var config = createPatternObject('../../app/_patterns', function (err, filesTree){
+  // createPatternObjectPromise('../../app/_patterns')
+  //   .then(function(resp){
+  //     console.log('1stthen');
+  //     return resp;
+  //   })
+  //   .then(function(){
+  //     console.log('2ndthen');
+  //     return filesTree;
+  //   })
+createPatternObject('../../app/_patterns', function (err, filesTree){
   if (err) throw err;
 
   //@TODO: generate menu tree using filesTree
@@ -14,4 +24,3 @@ var config = createPatternObject('../../app/_patterns', function (err, filesTree
   console.log(filesTree);
 });
 
-console.log(config);
