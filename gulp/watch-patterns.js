@@ -4,7 +4,6 @@ var gulp = require('gulp'),
   patternImporter = require('pattern-importer'),
   patternImporterUtils = patternImporter.utils,
   path = require('path'),
-  print = require('gulp-print'),
   watch = require('gulp-watch'),
   map = require('map-stream'),
   _ = require('lodash');
@@ -30,15 +29,16 @@ var compilePattern = function compilePattern (options) {
 
 /**
  * Gulp task to watch raw pattern folders and convert to browser-ready html/css/js
- * @param {Gulp} gulp
  * @param {Object} [options] custom options
+ * @param {Array,String} options.localPatternFiles  project-relative path to sets of un-compiled patterns
+ * @param {Object}  options.patternImporterOptions  options needed for the pattern-importer
  * @requires NPM:Gulp
  * @requires NPM:Gulp-Watch
  * @requires NPM:lodash
  * @requires module:patternImporter.utils
  * @requires function:compilePattern
  */
-module.exports = function (gulp, projectOptions) {
+module.exports = function (projectOptions) {
 
   /* default options */
   var options = {
