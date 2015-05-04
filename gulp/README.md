@@ -19,10 +19,12 @@ Gulp task which sets up a watch (using [gulp-watch](https://www.npmjs.com/packag
 
 In your `gulpfile.js`, in the requires at the top:
 ```
+var gulp = require('gulp');
 var options = {
 	localPatternFiles: ['./relative/path/to/local/patterns','./some/other/pattern/directory']
 }
-var importPatterns = require('pattern-presenter').gulpPatternsWatch(require('gulp'),options)
+
+var importPatterns = require('pattern-presenter').gulpPatternsWatch(gulp,options)
 ```
 
 ### Options
