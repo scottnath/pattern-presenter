@@ -6,7 +6,7 @@ var gulp = require('gulp'),
   path = require('path'),
   watch = require('gulp-watch'),
   map = require('map-stream'),
-  _ = require('lodash');
+  merge = require('lodash.merge');
 
 
 /**
@@ -47,8 +47,8 @@ module.exports = function (projectOptions) {
   }
 
   /* merge project and default options */
-  _.merge(options, projectOptions, function (a, b) {
-    return _.isArray(a) ? b : undefined;
+  merge(options, projectOptions, function (a, b) {
+    return Array.isArray(a) ? b : undefined;
   });
 
   gulp.task('watch-patterns', function() {

@@ -22,7 +22,7 @@
     "gulp-util": "^3.0.4",
     "gulp-watch": "^4.2.4",
     "js-yaml": "^3.2.7",
-    "lodash": "^3.7.0",
+    "lodash.merge": "^3.2.1",
     "node-dir": "^0.1.6"
   }
 }
