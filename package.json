@@ -26,6 +26,6 @@
     "lodash.merge": "^3.2.1",
     "map-stream": "0.0.5",
     "node-dir": "^0.1.6",
-    "pattern-importer": "0.0.1"
+    "pattern-importer": "^0.0.2"
   }
 }
