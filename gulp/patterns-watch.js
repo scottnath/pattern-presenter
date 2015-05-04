@@ -1,12 +1,12 @@
 'use strict';
 
 var gulp = require('gulp'),
-  patternImporter = require('pattern-importer'),
-  patternImporterUtils = patternImporter.utils,
   path = require('path'),
   watch = require('gulp-watch'),
   map = require('map-stream'),
-  merge = require('lodash.merge');
+  merge = require('lodash.merge'),
+  patternImporter = require('pattern-importer').patternImporter,
+  patternImporterUtils = require('pattern-importer').utils;
 
 
 /**
@@ -38,7 +38,7 @@ var compilePattern = function compilePattern (options) {
  * @requires module:patternImporter.utils
  * @requires function:compilePattern
  */
-module.exports = function (projectOptions) {
+module.exports = function (gulp, projectOptions) {
 
   /* default options */
   var options = {
@@ -51,7 +51,7 @@ module.exports = function (projectOptions) {
     return Array.isArray(a) ? b : undefined;
   });
 
-  gulp.task('watch-patterns', function() {
+  gulp.task('patterns-watch', function() {
 
     watch(options.localPatternFiles, function (file) {
       gulp.src(file.path)
