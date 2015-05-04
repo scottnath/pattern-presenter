@@ -1,7 +1,6 @@
 'use strict';
 
-var gulp = require('gulp'),
-  path = require('path'),
+var path = require('path'),
   watch = require('gulp-watch'),
   map = require('map-stream'),
   merge = require('lodash.merge'),
@@ -16,7 +15,7 @@ var gulp = require('gulp'),
  * @requires NPM:map-stream
  * @requires module:patternImporter
  */
-var compilePattern = function compilePattern (options) {
+var compilePattern = function compilePattern (gulp,options) {
 
   return map(function(file, cb) {
     var filepath, formatted;
@@ -55,7 +54,7 @@ module.exports = function (gulp, projectOptions) {
 
     watch(options.localPatternFiles, function (file) {
       gulp.src(file.path)
-        .pipe(compilePattern(options));
+        .pipe(compilePattern(gulp,options));
     });
 
   })
