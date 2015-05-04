@@ -22,7 +22,7 @@ In your `gulpfile.js`, in the requires at the top:
 var options = {
 	localPatternFiles: ['./relative/path/to/local/patterns','./some/other/pattern/directory']
 }
-var importPatterns = require('pattern-presenter').gulpWatchPatterns(require('gulp'),options)
+var importPatterns = require('pattern-presenter').gulpPatternsWatch(require('gulp'),options)
 ```
 
 ### Options
