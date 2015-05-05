@@ -2,29 +2,10 @@
 
 var path = require('path'),
   watch = require('gulp-watch'),
-  map = require('map-stream'),
   merge = require('lodash.merge'),
   patternImporter = require('pattern-importer').patternImporter,
   patternImporterUtils = require('pattern-importer').utils;
 
-
-/**
- * Gulp task to convert a specific pattern to browser-ready html/css/js
- * @param {Object} [options] custom options
- * @requires node:path
- * @requires NPM:map-stream
- * @requires module:patternImporter
- */
-var compilePattern = function compilePattern (gulp,options) {
-
-  return map(function(file, cb) {
-    var filepath, formatted;
-    filepath = path.dirname(path.relative(process.cwd(), file.path));
-    gulp.src(path.join(filepath,options.patternImporterOptions.dataFileName))
-      .pipe(patternImporter(options.patternImporterOptions));
-    return cb(null, file);
-  });
-}
 
 /**
  * Gulp task to watch raw pattern folders and convert to browser-ready html/css/js
@@ -34,8 +15,7 @@ var compilePattern = function compilePattern (gulp,options) {
  * @requires NPM:Gulp
  * @requires NPM:Gulp-Watch
  * @requires NPM:lodash
- * @requires module:patternImporter.utils
- * @requires function:compilePattern
+ * @requires NPM:Pattern-Importer
  */
 module.exports = function (gulp, projectOptions) {
 
@@ -50,11 +30,16 @@ module.exports = function (gulp, projectOptions) {
     return Array.isArray(a) ? b : undefined;
   });
 
+  /* gulp task to watch our designated pattern directories */
   gulp.task('patterns-watch', function() {
 
     watch(options.localPatternFiles, function (file) {
-      gulp.src(file.path)
-        .pipe(compilePattern(gulp,options));
+      
+      var paths = patternImporterUtils.getFilePaths(file);
+      var ymlFile = path.join(paths.folder,options.patternImporterOptions.dataFileName);
+
+      gulp.src(ymlFile)
+        .pipe(patternImporter());
     });
 
   })
