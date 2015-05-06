@@ -28,5 +28,7 @@ function createCompiledPatternsObject () {
 
 module.exports = {
   createCompiledPatternsObject: createCompiledPatternsObject,
-  gulpPatternsWatch: require('./gulp/patterns-watch')
+  createPatternObject: createPatternObject,
+  gulpPatternsWatch: require('./gulp/patterns-watch'),
+  gulpPatternsMenu: require('./gulp/patterns-menu')
 }

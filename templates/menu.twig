@@ -1,0 +1,26 @@
+
+{% if categories is not empty %}
+  <ul class="patterns-menu">
+    {% for key,value in categories %}
+      {% if value.patterns is not empty %}
+        <li>{{key}}<ul>
+        {% if value.subcategories is not empty %}
+          {% for key,value in value.subcategories %} 
+            {% if value.patterns is not empty %}
+             <li>{{key}}
+              <ul>
+              {% for item in value.patterns %}
+                <li><a href="{{item.url}}">{{item.name}}</a></li>
+              {% endfor %}
+              </ul></li>
+            {% endif %}
+          {% endfor %}
+        {% endif %}
+        {% for item in value.patterns %}
+          <li><a href="{{item.url}}">{{item.name}}</a></li>
+        {% endfor %}
+        </ul></li>
+      {% endif %}
+    {% endfor %}
+  </ul>  
+{% endif %}
