@@ -21,22 +21,22 @@ module.exports = function (gulp, projectOptions) {
   /* gulp task to watch our designated pattern directories */
   gulp.task('patterns-menu', function() {
 
-  	var options = {
-  		src: './node_modules/pattern-presenter/node_modules/object-to-list/templates/menu.twig',
-  		dest: './app/PUBLIC/menu.html'
-  	}
+    var options = {
+      src: './node_modules/pattern-presenter/node_modules/object-to-list/templates/menu.twig',
+      dest: './app/PUBLIC/menu.html'
+    }
 
-	  /* merge project and default options */
-	  merge(options, projectOptions, function (a, b) {
-	    return Array.isArray(a) ? b : undefined;
-	  });
+    /* merge project and default options */
+    merge(options, projectOptions, function (a, b) {
+      return Array.isArray(a) ? b : undefined;
+    });
 
-  	createPatternObject('./app/PUBLIC', function (err, filesTree){
-	    if (err) throw err;
+    createPatternObject('./app/PUBLIC', function (err, filesTree){
+      if (err) throw err;
 
-			menuLister(options.src, filesTree, options.dest);
+      menuLister(options.src, filesTree, options.dest);
 
-	  });
+    });
 
   })
 }
