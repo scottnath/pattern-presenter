@@ -28,6 +28,7 @@
     "node-dir": "^0.1.6",
     "object-to-list": "git://github.com/rebmullin/patterns-menu-list.git#pattern-menu-work",
     "pattern-importer": "^0.0.2",
+    "pattern-library-utilities": "^0.0.2",
     "vinyl": "^0.4.6"
   }
 }

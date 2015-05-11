@@ -4,7 +4,8 @@ var path = require('path'),
   watch = require('gulp-watch'),
   merge = require('lodash.merge'),
   patternImporter = require('pattern-importer').patternImporter,
-  patternImporterUtils = require('pattern-importer').utils;
+  patternImporterUtils = require('pattern-importer').utils,
+  plUtils = require('pattern-library-utilities');
 
 
 /**
@@ -35,7 +36,7 @@ module.exports = function (gulp, projectOptions) {
 
     watch(options.localPatternFiles, function (file) {
       
-      var paths = patternImporterUtils.getFilePaths(file);
+      var paths = plUtils.getFilePaths(file);
       var ymlFile = path.join(paths.folder,options.patternImporterOptions.dataFileName);
 
       gulp.src(ymlFile)
