@@ -11,14 +11,7 @@
 angular
   .module('atlasAngularTest', [
     'templatescache',
-    'ngAnimate',
-    'ngAria',
-    'ngCookies',
-    'ngMessages',
-    'ngResource',
-    'ngRoute',
-    'ngSanitize',
-    'ngTouch'
+    'ngRoute'
   ])
   .config(function ($routeProvider) {
     $routeProvider
